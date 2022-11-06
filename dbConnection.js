@@ -1,17 +1,18 @@
 const mongoose = require('mongoose')
-require('dotenv').config()
-
-const MongoDB_URL = process.env.MongoDB_URL
+require("dotenv").config()
 
 
 function DbConnection(){
-    mongoose.connect(`${MongoDB_URL}`)
-    mongoose.connection.on('connected', ()=>{
-        console.log('Connection to MongoDB is successful')
+    
+    mongoose.connect(process.env.MONGODB_URL)
+
+    mongoose.connection.on("connected",() => {
+        console.log("connected to db succesfully")
     })
-    mongoose.connection.on('error', (err)=>{
-        console.log('Unable to Connect to MongoDB')
+
+    mongoose.connection.on("error",() => {
+        console.log("failed to connect to db")
     })
 }
 
-module.exports = DbConnection
+module.exports = {DbConnection}
