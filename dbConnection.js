@@ -14,4 +14,4 @@ function DbConnection(){
     })
 }
 
-module.exports = {DbConnection}
+module.exports = DbConnection
